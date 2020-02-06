@@ -25,16 +25,17 @@ class Status:
         self.args = args
         self.kwargs = kwargs
         self.c = c
+        print('initiated')
 
-        if isinstance(self.args[0], callable):
-
-            def check(func: callable):
-                try:
-                    print(func(*args, **kwargs))
-
-                except Exception as e:
-                    # self.p(str(type(e)), e, starter='', exception_c=)
-                    print(type(e), e)
+    def __call__(self, func: callable):
+        
+        def execute(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                self.p(type(e), f'Fatal error occured: {e}')
+        
+        return execute
 
 
     def _join(self, lst: list, bind=' ') -> str:
@@ -86,12 +87,12 @@ class Status:
         print(self._join(lst))
 
 
-@Status.check()
+@Status()
 def preview():
-    Status.p('warning', 'This is a test warning. Be warned!')
-    Status.p('fail', 'Oh no, something has totally failed!')
-    Status.p('ready', 'This is fine. Everything is fine.')
-    # x = int('a')
+    Status('warning', 'This is a test warning. Be warned!')
+    Status('fail', 'Oh no, something has totally failed!')
+    Status('ready', 'This is fine. Everything is fine.')
+    x = int('a')
 
 
 if __name__ == "__main__":
