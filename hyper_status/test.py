@@ -21,26 +21,21 @@ c = {
 
 class Status:
 
-    def __init__(self, func, **kwargs):
+    def __init__(self, *args, **kwargs):
         self.args = args
         self.kwargs = kwargs
         self.c = c
 
-    def __call__(self, func: callable):
-        return
-        # print(self.kwargs.get('name'))
-        # self.status = status.lower()
-        # self.warning = warning
+        if isinstance(self.args[0], callable):
 
-        def check(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            
-            except Exception as e:
-                # self.p(str(type(e)), e, starter='', exception_c=)
-                print(type(e), e)
+            def check(func: callable):
+                try:
+                    print(func(*args, **kwargs))
 
-        return check
+                except Exception as e:
+                    # self.p(str(type(e)), e, starter='', exception_c=)
+                    print(type(e), e)
+
 
     def _join(self, lst: list, bind=' ') -> str:
         return bind.join(str(y) for y in lst)
