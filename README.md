@@ -14,7 +14,27 @@
 
 
 # Examples
-- Examples will be coming soon
+```python
+# Custom print example
+Status('warning', 'This is a test warning. Be warned!')
+Status('fail', 'Oh no, something has totally failed!')
+Status('ready', 'This is fine. Everything is fine.')
+```
+<p align="left">
+    <img src="/images/examples/custom.png"/>
+</p>
+
+```python
+# Simple catch error example
+@Status.catch_error
+def main():
+    x = int('a')
+
+main()
+```
+<p align="left">
+    <img src="/images/examples/error.png"/>
+</p>
 
 
 # Changelog
