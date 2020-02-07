@@ -21,28 +21,25 @@ c = {
 
 class Status:
 
-    def __init__(self, *args, **kwargs):
-        self.args = args
-        self.kwargs = kwargs
+    def __init__(self, status: str, warn_str: str):
+        self.status = status
+        self.warning = warning
         self.c = c
-        print('initiated')
 
     def __call__(self, func: callable):
         
         def execute(*args, **kwargs):
             try:
-                return func(*args, **kwargs)
+                func(*args, **kwargs)
             except Exception as e:
-                self.p(type(e), f'Fatal error occured: {e}')
-        
-        return execute
+                self.p(type(e).__name__, f'Fatal error occured:', exception_c=True)
 
+        return execute
 
     def _join(self, lst: list, bind=' ') -> str:
         return bind.join(str(y) for y in lst)
 
-    # @catch_color_error
-    def p(self, status: str, warning: str, n=datetime.datetime.now(), starter='~>', exception_c=False) -> str:
+    def insert_items(self, status: str, warning: str, n=datetime.datetime.now(), starter='~>', exception_c=False) -> str:
         '''Gets information collected so far and returns the custom status.
 
         Args:
@@ -73,12 +70,15 @@ class Status:
             title = exception_c
             _color = 'fail'
 
+        if status in self.c.keys():
+            status = self.c[status]
+        
         # Putting everything into a list.
         lst = [
             # Formatted date within brackets.
             f"{starter} {b}[{e} {self.c['date']}{n}{e} {b}]{e} >",
             # The status given by the user
-            f"{b}[{e} {self.c[status]}{title}{e} {b}]{e}:",
+            f"{b}[{e} {status}{title}{e} {b}]{e}:",
             # Putting the warning string into the status, with a small amount of formatting.
             f"{self.warning.capitalize()}{'.' if self.warning[-1] not in ['.', '!', '?'] else ''}"
         ]
