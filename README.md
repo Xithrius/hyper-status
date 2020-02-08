@@ -14,10 +14,30 @@
 
 
 # Examples
-- Examples will be coming soon
+```python
+# Custom print example
+Status('This is a test warning. Be warned!', 'warn')
+Status('Oh no, something has totally failed!', 'fail')
+Status('This is fine. Everything is fine.', 'ok')
+Status('Something happened.')
+Status()
+```
+<p align="left">
+    <img src="/images/custom.png"/>
+</p>
 
 
 # Changelog
+
+## [v1.0](!https://github.com/Xithrius/Xythrion/releases/tag/v1.0):
+#### Added:
+- Ability to change colors just by editing the module's color dictionary after importing.
+- You don't need to put anything at all in the Status, and it will print just the date.
+#### Changed:
+- Amounts of colors, and the statuses that go with them. 
+- Where the status is placed. The warning string is now the first priority.
+#### Removed:
+- Wrapper for catching errors, since a person should know how to catch errors and then use this package.
 
 ## [v0.2](!https://github.com/Xithrius/Xythrion/releases/tag/v0.2):
 #### Added:
