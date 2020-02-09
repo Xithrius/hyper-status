@@ -14,13 +14,13 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="hyper_status",
-    version="1.0",
+    version="1.1",
     author="Xithrius",
     author_email="xithrius@example.com",
     description="A status indicator that you can modify.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Xithrius/hyper_status",
+    url="https://github.com/Xithrius/hyper-status",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
