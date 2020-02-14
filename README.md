@@ -29,6 +29,10 @@ Status()
 
 # Changelog
 
+## [v1.2](!https://github.com/Xithrius/Xythrion/releases/tag/v1.2):
+#### Changed:
+- Fixed bug where time wouldn't change after Status is called multiple times.
+
 ## [v1.1](!https://github.com/Xithrius/Xythrion/releases/tag/v1.1):
 #### Changed:
 - The way this package is imported. From `from hyper_status.status import Status` to `from hyper_status import Status`

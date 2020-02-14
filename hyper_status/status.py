@@ -38,7 +38,7 @@ class Status:
     def _join(self, lst: list, _sep=' ') -> str:
         return _sep.join(str(y) for y in lst)
 
-    def insert_items(self, n=datetime.datetime.now(), starter='~>'):
+    def insert_items(self, starter='~>'):
         '''Gets information collected so far and returns the custom status.
 
         Args:
@@ -54,6 +54,9 @@ class Status:
         # Bold, and the color indicating the end of the previous one
         b = self.c['bold']
         e = self.c['end']
+
+        # Creating the time.
+        n = datetime.datetime.now()
 
         # Formatting time
         t = [int(i) if i[0] != '0' else int(i[1]) for i in n.strftime('%I %M %S').split()]
