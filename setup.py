@@ -14,7 +14,7 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="hyper_status",
-    version="1.1",
+    version="1.3",
     author="Xithrius",
     author_email="xithrius@example.com",
     description="A status indicator that you can modify.",
