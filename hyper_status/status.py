@@ -59,8 +59,8 @@ class Status:
         n = datetime.datetime.now()
 
         # Formatting time
-        t = [int(i) if i[0] != '0' else int(i[1]) for i in n.strftime('%I %M %S').split()]
-        n = f"{n.strftime('%b %d %Y, %A')} {self._join(t, ':')}{n.strftime('%p').lower()}"
+        t = self._join(n.strftime('%I %M %S').split(), ':')
+        n = f"{n.strftime('%b %d %Y, %A')} {t}{n.strftime('%p').lower()}"
 
         if self.status:
             # Setting title and color

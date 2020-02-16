@@ -29,6 +29,10 @@ Status()
 
 # Changelog
 
+## [v1.3](!https://github.com/Xithrius/Xythrion/releases/tag/v1.3):
+#### Changed:
+- Put 0's back for now in timestamps so all statuses are aligned.
+
 ## [v1.2](!https://github.com/Xithrius/Xythrion/releases/tag/v1.2):
 #### Changed:
 - Fixed bug where time wouldn't change after Status is called multiple times.
